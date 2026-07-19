@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login - SRM Engineering and Technology</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>SRM Engineering and Technology</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="faculty.html">Faculty</a></li>
+                <li><a href="student-login.html" class="active">Student Login</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-shell">
+            <div class="form-card" id="login-card">
+                <p class="eyebrow">Portal Access</p>
+                <h2>Student Login</h2>
+                <form id="login-form">
+                    <label for="student-id">Student ID</label>
+                    <input type="text" id="student-id" placeholder="Enter your ID" required>
+
+                    <label for="student-course">Select Course</label>
+                    <select id="student-course">
+                        <option>B.Tech</option>
+                        <option>BCA</option>
+                        <option>BBA</option>
+                        <option>MCA</option>
+                        <option>Electronics and Communication Engineering</option>
+                        <option>Electrical and Electronics Engineering</option>
+                        <option>Artificial Intelligence and Data Science</option>
+                        <option>Information Technology</option>
+                    </select>
+
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+
+            <div class="dashboard-card" id="dashboard" style="display:none;">
+                <p class="eyebrow">Student Dashboard</p>
+                <h2>Attendance Overview</h2>
+                <div class="student-summary">
+                    <div>
+                        <strong>Student ID:</strong> 20241001
+                    </div>
+                    <div>
+                        <strong>Course:</strong> <span id="selected-course">B.Tech</span>
+                    </div>
+                    <div>
+                        <strong>Status:</strong> Present
+                    </div>
+                </div>
+                <div class="bar-chart">
+                    <div class="bar-item">
+                        <div class="bar-track"><div class="bar-fill" style="height:86%"></div></div>
+                        <span>Maths</span>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-track"><div class="bar-fill" style="height:74%"></div></div>
+                        <span>Physics</span>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-track"><div class="bar-fill" style="height:82%"></div></div>
+                        <span>Chem</span>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-track"><div class="bar-fill" style="height:91%"></div></div>
+                        <span>English</span>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-track"><div class="bar-fill" style="height:78%"></div></div>
+                        <span>C++</span>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-track"><div class="bar-fill" style="height:89%"></div></div>
+                        <span>Lab</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 SRM Engineering and Technology | Student Portal</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('login-form');
+        const dashboard = document.getElementById('dashboard');
+        const loginCard = document.getElementById('login-card');
+        const courseOutput = document.getElementById('selected-course');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const selectedCourse = document.getElementById('student-course').value;
+            courseOutput.textContent = selectedCourse;
+            loginCard.style.display = 'none';
+            dashboard.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
